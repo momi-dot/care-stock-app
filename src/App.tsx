@@ -1,4 +1,6 @@
-import { FormEvent, useMemo, useState } from 'react';
+import { FormEvent, useMemo, useState, useEffect } from 'react';
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import app from "./firebase";
 
 type InventoryItem = {
   id: number;
@@ -15,6 +17,20 @@ const starterItems: InventoryItem[] = [
 ];
 
 export default function App() {
+  const db = getFirestore(app);
+  useEffect(() => {
+  const fetchData = async () => {
+    const querySnapshot = await getDocs(collection(db, "items"));
+    const data = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    console.log(data);
+  };
+
+  fetchData();
+}, []);
+
   const [items, setItems] = useState<InventoryItem[]>(starterItems);
   const [name, setName] = useState('');
   const [sku, setSku] = useState('');
