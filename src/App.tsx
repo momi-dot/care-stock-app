@@ -26,6 +26,7 @@ export default function App() {
       ...doc.data()
     }));
     console.log(data);
+    setItems(data as InventoryItem[]);
   };
 
   fetchData();
