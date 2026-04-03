@@ -32,7 +32,7 @@ export default function App() {
   fetchData();
 }, []);
 
-  const [items, setItems] = useState<InventoryItem[]>(starterItems);
+  const [items, setItems] = useState<InventoryItem[]>([]);
   const [name, setName] = useState('');
   const [sku, setSku] = useState('');
   const [quantity, setQuantity] = useState(0);
