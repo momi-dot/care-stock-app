@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "←貼る",
-  authDomain: "←貼る",
+  apiKey: "ここに貼る",
+  authDomain: "ここに貼る",
   projectId: "care-stock-app",
-  storageBucket: "←貼る",
-  messagingSenderId: "←貼る",
-  appId: "←貼る"
+  storageBucket: "ここに貼る",
+  messagingSenderId: "ここに貼る",
+  appId: "ここに貼る"
 };
 
 const app = initializeApp(firebaseConfig);
