@@ -11,9 +11,9 @@ type InventoryItem = {
 };
 
 const starterItems: InventoryItem[] = [
-  { id: 1, name: 'Bandages', sku: 'MED-1001', quantity: 52, threshold: 20 },
-  { id: 2, name: 'Latex Gloves', sku: 'MED-1010', quantity: 14, threshold: 15 },
-  { id: 3, name: 'Pain Reliever', sku: 'MED-1120', quantity: 34, threshold: 10 }
+  { id: "1", name: 'Bandages', sku: 'MED-1001', quantity: 52, threshold: 20 },
+  { id: "2", name: 'Latex Gloves', sku: 'MED-1010', quantity: 14, threshold: 15 },
+  { id: "3", name: 'Pain Reliever', sku: 'MED-1120', quantity: 34, threshold: 10 }
 ];
 
 export default function App() {
@@ -53,7 +53,7 @@ export default function App() {
     setItems((prev) => [
       ...prev,
       {
-        id: Date.now(),
+        id: Date.now().toString(),
         name: name.trim(),
         sku: sku.trim().toUpperCase(),
         quantity,
@@ -67,7 +67,7 @@ export default function App() {
     setThreshold(0);
   };
 
-  const updateQuantity = (id: number, nextQuantity: number) => {
+  const updateQuantity = (id: string, nextQuantity: number) => {
     setItems((prev) =>
       prev.map((item) =>
         item.id === id ? { ...item, quantity: Math.max(0, nextQuantity) } : item
@@ -75,7 +75,7 @@ export default function App() {
     );
   };
 
-  const removeItem = (id: number) => {
+  const removeItem = (id: string) => {
     setItems((prev) => prev.filter((item) => item.id !== id));
   };
 
