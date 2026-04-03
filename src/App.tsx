@@ -21,10 +21,10 @@ export default function App() {
   useEffect(() => {
   const fetchData = async () => {
     const querySnapshot = await getDocs(collection(db, "items"));
-    const data = querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }));
+    const data = querySnapshot.docs.map((doc: any) => ({
+  id: doc.id,
+  ...doc.data()
+}));
     console.log(data);
     setItems(data as InventoryItem[]);
   };
