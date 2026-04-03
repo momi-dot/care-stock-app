@@ -3,7 +3,7 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 import app from "./firebase";
 
 type InventoryItem = {
-  id: number;
+  id: string;
   name: string;
   sku: string;
   quantity: number;
